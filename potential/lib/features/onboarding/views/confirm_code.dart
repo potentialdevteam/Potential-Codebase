@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+import 'package:potential/features/onboarding/widgets/onboarding_button.dart';
+import 'package:potential/features/onboarding/widgets/otp_form_field.dart';
+import 'package:potential/core/configs/fade_route_transition.dart';
+import 'package:potential/features/onboarding/views/reset_password.dart';
+import 'package:potential/core/constants/colors.dart';
+import 'package:potential/shared/widgets/back_button.dart';
+
+class ConfirmCodeScreen extends StatelessWidget {
+  const ConfirmCodeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      backgroundColor: AppColors.bgBlack,
+      body: Center(
+        child: SizedBox(
+          width: screenWidth * 0.8,
+          child: Column(
+            spacing: screenHeight * 0.03,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              // Icon
+              Container(
+                margin: EdgeInsets.only(top: screenHeight * 0.1),
+                width: screenWidth * 0.85,
+                alignment: Alignment.centerLeft,
+                child: BackButtonWidget(addPadding: false),
+              ),
+
+              Expanded(
+                child: Column(
+                  spacing: screenHeight * 0.02,
+                  children: <Widget>[
+                    Container(
+                      width: screenWidth * 0.85,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Enter Code",
+                        style: TextStyle(
+                          color: AppColors.accentWhite,
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: screenWidth * 0.85,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "We've sent a code to your email. Please enter it below to reset your password.",
+                        style: TextStyle(
+                          color: AppColors.accentWhite,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+
+                    OtpFormField(),
+
+                    // SignInButton
+                    Hero(
+                      tag: "signInButtonWelcomeScreen",
+                      child: OnboardingButton(
+                        onPressed: () => Navigator.push(
+                          context,
+                          FadeRouteTransition(dest: ResetPassword()),
+                        ),
+                        text: "Next",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Main Content
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

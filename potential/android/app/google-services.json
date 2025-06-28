@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "452679362720",
+    "project_id": "potential-user-authentication",
+    "storage_bucket": "potential-user-authentication.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452679362720:android:de503f9e35d61468ca41c5",
+        "android_client_info": {
+          "package_name": "com.example.potential"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCORCytpNHDjA920xesZuB_Xg90QW8Lu7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
